@@ -1,5 +1,8 @@
 # twitch-viewer
 
+## demo
+https://frosty-hawking-8d488a.netlify.com/
+
 ## Project setup
 ```
 npm install
