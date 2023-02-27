@@ -10,7 +10,7 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "vue": "^2.7.14",
-    "vuetify": "^2.0.0"
+    "vuetify": "^2.6.14"
   },
   "devDependencies": {
     "@mdi/font": "^4.0.96",
@@ -22,7 +22,7 @@
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "material-design-icons-iconfont": "^5.0.1",
-    "sass": "^1.17.4",
+    "sass": "~1.32.12",
     "sass-loader": "^7.1.0",
     "vue-cli-plugin-vuetify": "^0.6.3",
     "vue-router": "^3.1.2",
