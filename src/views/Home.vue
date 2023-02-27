@@ -1,19 +1,35 @@
 <template>
-  <v-container class="fill-height" fluid>
-    <v-row align="center" justify="center">
-      <v-col v-for="broadcast in twitchBroadcasts" :key="broadcast" cols="sm">
-        <v-responsive :aspect-ratio="16 / 9">
-          <TwitchViewer :broadcast="broadcast" :isShowComment="false" />
-        </v-responsive>
-      </v-col>
-    </v-row>
-    <!-- <YoutubeViewer
+  <v-container
+    class="fill-height"
+    fluid
+    style="height: 100%;"
+  >
+    <v-row
+    align="center"
+    justify="center"
+    style="height: 100%;"
+  >
+    <v-col 
+      v-for="broadcast in twitchBroadcasts"
+      :key="broadcast"
+      cols="sm"
+    >
+    <v-responsive :aspect-ratio="16/9"> 
+    <TwitchViewer
+      :broadcast="broadcast"
+      :isShowComment="false"
+    />
+    </v-responsive>
+    </v-col>
+  </v-row>
+        <!-- <YoutubeViewer
           v-for="broadcast in youtubeBroadcasts"
           :broadcast="broadcast"
           :key="broadcast"
         /> -->
 
-    <!-- <TwitchChat v-show="isShowComment" :twitchBroadcasts="twitchBroadcasts" /> -->
+      <!-- <TwitchChat v-show="isShowComment" :twitchBroadcasts="twitchBroadcasts" /> -->
+
 
     <!-- <footer class="footer">
       <label class="checkbox">
@@ -28,7 +44,6 @@
 <script>
 // import InputBroadcast from "@/components/InputBroadcast.vue";
 import TwitchViewer from "@/components/TwitchViewer.vue";
-
 // import TwitchChat from "@/components/TwitchChat.vue";
 // import YoutubeViewer from "@/components/YoutubeViewer.vue";
 export default {
@@ -43,6 +58,7 @@ export default {
   },
   components: {
     TwitchViewer
+    // TwitchChat,
   },
   methods: {
     addBroadcastElement(inputValue, selected) {
