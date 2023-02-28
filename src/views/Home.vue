@@ -1,27 +1,12 @@
 <template>
-  <v-container
-    class="fill-height"
-    fluid
-    style="height: 100%;"
-  >
-    <v-row
-    align="center"
-    justify="center"
-    style="height: 100%;"
-  >
-    <v-col 
-      v-for="broadcast in twitchBroadcasts"
-      :key="broadcast"
-      cols="sm"
-    >
-    <v-responsive :aspect-ratio="16/9"> 
-    <TwitchViewer
-      :broadcast="broadcast"
-      :isShowComment="false"
-    />
-    </v-responsive>
-    </v-col>
-  </v-row>
+  <v-container class="fill-height" fluid style="height: 100%">
+    <v-row align="center" justify="center" style="height: 100%">
+      <v-col v-for="broadcast in twitchBroadcasts" :key="broadcast" cols="sm">
+        <v-responsive :aspect-ratio="16 / 9">
+          <TwitchViewer :broadcast="broadcast" :isShowComment="false" />
+        </v-responsive>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -31,11 +16,11 @@ export default {
   name: "home",
   data() {
     return {
-      twitchBroadcasts: []
+      twitchBroadcasts: [],
     };
   },
   components: {
-    TwitchViewer
+    TwitchViewer,
   },
   methods: {
     addBroadcastElement(inputValue, selected) {
@@ -43,33 +28,35 @@ export default {
       this.$router.push({
         name: "home",
         query: {
-          twitch: this.twitchBroadcasts
-        }
+          twitch: this.twitchBroadcasts,
+        },
       });
     },
     removeBroadcastElement(selected) {
       // TODO
       this[`${selected}Broadcasts`] = this[`${selected}Broadcasts`].filter(
-        elem => elem === selected
+        (elem) => elem === selected
       );
       this.$router.push({
         name: "home",
         query: {
-          twitch: this.twitchBroadcasts
-        }
+          twitch: this.twitchBroadcasts,
+        },
       });
-    }
+    },
   },
   beforeRouteEnter(to, from, next) {
-    next(vm => {
-      const channels = to.query.twitch.split(",").filter(channel => channel !== "");
+    next((vm) => {
+      const channels = to.query.twitch
+        .split(",")
+        .filter((channel) => channel !== "");
       if (channels.length > 0) {
-        channels.forEach(channel => {
+        channels.forEach((channel) => {
           vm.twitchBroadcasts.push(channel);
         });
       }
     });
-  }
+  },
 };
 </script>
 
