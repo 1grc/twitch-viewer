@@ -61,7 +61,6 @@ export default {
     }
   },
   beforeRouteEnter(to, from, next) {
-    console.log("beforerouteenter");
     next(vm => {
       let query = to.query;
       if (query.twitch) {
