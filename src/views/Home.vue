@@ -22,43 +22,20 @@
     </v-responsive>
     </v-col>
   </v-row>
-        <!-- <YoutubeViewer
-          v-for="broadcast in youtubeBroadcasts"
-          :broadcast="broadcast"
-          :key="broadcast"
-        /> -->
-
-      <!-- <TwitchChat v-show="isShowComment" :twitchBroadcasts="twitchBroadcasts" /> -->
-
-
-    <!-- <footer class="footer">
-      <label class="checkbox">
-        <input type="checkbox" v-model="isShowComment" />
-        Show chat |
-      </label>
-      <InputBroadcast v-on:addBroadcast="addBroadcastElement" />
-    </footer> -->
   </v-container>
 </template>
 
 <script>
-// import InputBroadcast from "@/components/InputBroadcast.vue";
 import TwitchViewer from "@/components/TwitchViewer.vue";
-// import TwitchChat from "@/components/TwitchChat.vue";
-// import YoutubeViewer from "@/components/YoutubeViewer.vue";
 export default {
   name: "home",
   data() {
     return {
-      //isShowComment: false,
       twitchBroadcasts: []
-      //youtubeBroadcasts: [],
-      //chatTab: []
     };
   },
   components: {
     TwitchViewer
-    // TwitchChat,
   },
   methods: {
     addBroadcastElement(inputValue, selected) {
@@ -67,7 +44,6 @@ export default {
         name: "home",
         query: {
           twitch: this.twitchBroadcasts
-          // youtube: this.youtubeBroadcasts
         }
       });
     },
@@ -80,7 +56,6 @@ export default {
         name: "home",
         query: {
           twitch: this.twitchBroadcasts
-          // youtube: this.youtubeBroadcasts
         }
       });
     }
@@ -99,17 +74,6 @@ export default {
           vm.twitchBroadcasts.push(query.twitch);
         }
       }
-      // if (query.youtube) {
-      //   if (typeof query.youtube === "object") {
-      //     query.youtube.forEach(element => {
-      //       vm.youtubeBroadcasts.push(element);
-      //     });
-      //   }
-      //   if (typeof query.youtube === "string") {
-      //     vm.youtubeBroadcasts.push(query.youtube);
-      //   }
-      // }
-      // vm.chatTab = vm.twitchBroadcasts[0];
     });
   }
 };
