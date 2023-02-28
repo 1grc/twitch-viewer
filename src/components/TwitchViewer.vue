@@ -1,6 +1,6 @@
 <template>
   <iframe
-    :src="`https://player.twitch.tv/?channel=${broadcast}`"
+    :src="`https://player.twitch.tv/?channel=${broadcast}&autoplay=false&parent=${DomainName()}`"
     frameborder="0"
     allowfullscreen="true"
     scrolling="no"
@@ -14,6 +14,11 @@
 export default {
   props: {
     broadcast: String
+  },
+  methods: {
+    DomainName() {
+      return document.domain
+    }
   }
 };
 </script>
