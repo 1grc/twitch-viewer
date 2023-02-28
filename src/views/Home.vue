@@ -62,16 +62,11 @@ export default {
   },
   beforeRouteEnter(to, from, next) {
     next(vm => {
-      let query = to.query;
-      if (query.twitch) {
-        if (typeof query.twitch === "object") {
-          query.twitch.forEach(element => {
-            vm.twitchBroadcasts.push(element);
-          });
-        }
-        if (typeof query.twitch === "string") {
-          vm.twitchBroadcasts.push(query.twitch);
-        }
+      const channels = to.query.twitch.split(",").filter(channel => channel !== "");
+      if (channels.length > 0) {
+        channels.forEach(channel => {
+          vm.twitchBroadcasts.push(channel);
+        });
       }
     });
   }
